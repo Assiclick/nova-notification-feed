@@ -1104,7 +1104,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ['notification'],
   filters: {
     fromNow: function fromNow(date) {
-      moment().locale('it');
+      moment.locale('it');
       return new moment.tz(date.date, 'YYYY-MM-DD HH:mm:ss', date.timezone).local().fromNow();
     }
   },
@@ -1261,7 +1261,11 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "table-cell w-full py-4 pl-4" }, [
-          _c("p", [_vm._v("{!! notification.data.message !!}")]),
+          _c("p", [
+            _c("span", {
+              domProps: { innerHTML: _vm._s(_vm.notification.data.message) }
+            })
+          ]),
           _vm._v(" "),
           _c("span", { staticClass: "text-sm text-70" }, [
             _vm._v(_vm._s(_vm._f("fromNow")(_vm.notification.created_at)))
